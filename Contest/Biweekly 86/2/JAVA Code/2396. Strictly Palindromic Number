@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isStrictlyPalindromic(int n) {
+        boolean ans=true;
+        for(int i=2;i<=n-2 && ans;i++) {
+            if(!isValid(n,i)) ans = false;
+        }
+        return ans;
+    }
+    public static boolean isValid(int n,int b) {
+        StringBuilder sb = new StringBuilder();
+        while(n>0) {
+            int r = n%b;
+            sb.append(r);
+            n/=b;
+        }
+        return isPalindrome(sb.toString());
+    }
+    
+    public static boolean isPalindrome(String s) {
+        for(int i=0,j=s.length()-1;i<j;i++,j--) if(s.charAt(i)!=s.charAt(j)) return false;
+        return true;
+    }
+}
