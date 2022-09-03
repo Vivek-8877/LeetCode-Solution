@@ -1,0 +1,122 @@
+Problem Name : - 967. Numbers With Same Consecutive Differences
+
+Time Complexity :- O(2^n);
+
+Explaination :-
+
+JAVA DFS Code :-
+
+class Solution {
+    public int[] numsSameConsecDiff(int n, int k) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i=1;i<=9;i++) solve(1,n,k,i,list);
+        int[] ans = new int[list.size()];
+        for(int i=0;i<list.size();i++) ans[i]=list.get(i);
+        return ans;
+    }
+    
+    public void solve(int i,int n,int k,int ans,ArrayList<Integer> list) {
+        
+        if(i==n) {
+            list.add(ans);
+            return;
+        }
+        
+        int d1 = (ans%10) + k;
+        int d2 = (ans%10) - k;
+        
+        if(d1>=0 && d1<=9) solve(i+1,n,k,ans*10+d1,list);
+        if(d2!=d1 && d2>=0 && d2<=9) solve(i+1,n,k,ans*10+d2,list);
+    }
+    
+}
+JAVA BFS Code :-
+
+class Solution {
+    public int[] numsSameConsecDiff(int n, int k) {
+        ArrayList<String> list = solve(1,n,k);
+        int[] ans = new int[list.size()];
+        int i=0;
+        for(String s : list) {
+            ans[i++]=Integer.parseInt(s);
+        }
+        return ans;
+    }
+    
+    public ArrayList<String> solve(int i,int n,int k) {
+        ArrayList<String> ans = new ArrayList<>();
+        if(i==n) {
+            if(i!=1) i=0;
+            for(int j=i;j<=9;j++) ans.add(Integer.toString(j));
+            return ans;
+        }
+        
+        ArrayList<String> list = solve(i+1,n,k);
+        for(String s : list) {
+            int d1 = s.charAt(0)-'0'+k;
+            int d2 = s.charAt(0)-'0'-k;
+            if(i==1) {
+                if(d1>=1 && d1<=9) {
+                    ans.add(d1+s);
+                }
+                if(d1!=d2 && d2>=1 && d2<=9) {
+                    ans.add(d2+s);
+                }
+            } else {
+                if(d1>=0 && d1<=9) {
+                    ans.add(d1+s);
+                }
+                if(d1!=d2 && d2>=0 && d2<=9) {
+                    ans.add(d2+s);
+                }
+            }
+        }
+        return ans;
+    }
+    
+}
+C++ BFS Code :-
+
+class Solution {
+public:
+    vector<int> numsSameConsecDiff(int n, int k) {
+        vector<string> list = solve(1,n,k);
+        vector<int> ans;
+        for(int i=0;i<list.size();i++) ans.push_back(stoi(list[i]));
+        
+        return ans;
+    }
+    
+    vector<string> solve(int i,int n,int k) {
+        vector<string> ans;
+        if(i==n) {
+            if(i!=1) i=0;
+            for(int j=i;j<=9;j++) ans.push_back(to_string(j));
+            return ans;
+        }
+        
+        vector<string> list = solve(i+1,n,k);
+        for(int j=0;j<list.size();j++) {
+            string s = list[j];
+            int d1 = s[0]+k-'0';
+            int d2 = s[0]-k-'0';
+            if(i==1) {
+                if(d1>=1 && d1<=9) {
+                    ans.push_back(to_string(d1)+s);
+                }
+                if(d1!=d2 && d2>=1 && d2<=9) {
+                    ans.push_back(to_string(d2)+s);
+                }
+            } else {
+                if(d1>=0 && d1<=9) {
+                    ans.push_back(to_string(d1)+s);
+                }
+                if(d1!=d2 && d2>=0 && d2<=9) {
+                    ans.push_back(to_string(d2)+s);
+                }
+            }
+        }
+        return ans;
+    }
+    
+};
