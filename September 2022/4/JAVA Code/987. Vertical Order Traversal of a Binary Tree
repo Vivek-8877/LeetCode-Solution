@@ -1,0 +1,78 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    
+    class Node {
+        TreeNode n;
+        int idx;
+        Node(TreeNode n,int idx) {
+            this.n=n;
+            this.idx=idx;
+        }
+    }
+    
+    public void add(Map<Integer,List<Integer>> map,int key,int val) {
+        List<Integer> list;
+        if(map.containsKey(key)) {
+            list = map.get(key);
+            list.add(val);
+        } else {
+            list = new ArrayList<>();
+            list.add(val);
+        }
+        map.put(key,list);
+    }
+    
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        Map<Integer,List<Integer>> map = new TreeMap<>();
+        
+        ArrayDeque<Node> dq = new ArrayDeque<>();
+        dq.add(new Node(root,0));
+        while(dq.size()>0) {
+            int s = dq.size();
+            Map<Integer,List<Integer>> map1 = new TreeMap<>();
+            
+            for(int i=0;i<s;i++) {
+                Node p = dq.pop();
+                if(p.n==null) continue;
+                add(map1,p.idx,p.n.val);
+                
+                dq.add(new Node(p.n.left,p.idx-1));
+                dq.add(new Node(p.n.right,p.idx+1));
+            }
+            
+            for(int key : map1.keySet()) {
+                Collections.sort(map1.get(key));
+                for(int val : map1.get(key)) {
+                    add(map,key,val);
+                }
+            }
+            
+        }
+        
+        List<List<Integer>> ans = new ArrayList<>();
+        
+        for(int key : map.keySet()) {
+            List<Integer> ans1 = new ArrayList<>();
+            for(int val : map.get(key)) {
+                ans1.add(val);
+            }
+            ans.add(ans1);
+        }
+        
+        return ans;
+    }
+}
