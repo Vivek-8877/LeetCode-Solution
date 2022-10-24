@@ -1,3 +1,5 @@
+// T.C :- O(2^n)
+
 class Solution {
 public:
     int maxLength(vector<string>& arr) {
