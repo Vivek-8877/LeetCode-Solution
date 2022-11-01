@@ -1,3 +1,6 @@
+// Problem Link :- https://leetcode.com/problems/where-will-the-ball-fall/
+// Video Solution Link :- https://www.youtube.com/watch?v=myc1tNf1ZBU
+
 class Solution {
 public:
     int dfs(vector<vector<int>>& grid,int i,int j) {
