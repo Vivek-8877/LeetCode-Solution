@@ -1,3 +1,7 @@
+// Problem Link :- https://leetcode.com/problems/where-will-the-ball-fall/
+// Video Solution Link :- https://www.youtube.com/watch?v=myc1tNf1ZBU
+
+
 class Solution {
     public static int dfs(int[][] grid,int i,int j) {
         if(i>=grid.length) return j;
