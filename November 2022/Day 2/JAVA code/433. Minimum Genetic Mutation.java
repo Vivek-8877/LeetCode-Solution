@@ -1,5 +1,5 @@
-Problem Link :- https://leetcode.com/problems/minimum-genetic-mutation/
-Video Solution Link :- https://www.youtube.com/watch?v=fBNrFBPpejU
+// Problem Link :- https://leetcode.com/problems/minimum-genetic-mutation/
+// Video Solution Link :- https://www.youtube.com/watch?v=fBNrFBPpejU
 
 class Solution {
     public int minMutation(String start, String end, String[] bank) {
