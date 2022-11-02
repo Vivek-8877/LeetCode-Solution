@@ -1,3 +1,6 @@
+// Problem Link :- https://leetcode.com/problems/minimum-genetic-mutation/
+// Video Solution Link :- https://www.youtube.com/watch?v=fBNrFBPpejU
+
 class Solution {
 public:
     int minMutation(string start, string end, vector<string>& bank) {
