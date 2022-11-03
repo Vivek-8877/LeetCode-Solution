@@ -1,5 +1,5 @@
-// Problem Link :-
-// Video Solution Link :- 
+// Problem Link :- https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/
+// Video Solution Link :- https://www.youtube.com/watch?v=d1ZZziNoS7c
 
 class Solution {
 public:
