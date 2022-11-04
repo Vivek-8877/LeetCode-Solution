@@ -1,5 +1,5 @@
-Problem Link :- https://leetcode.com/problems/reverse-vowels-of-a-string/description/
-Video Solution Link :- 
+// Problem Link :- https://leetcode.com/problems/reverse-vowels-of-a-string/description/
+// Video Solution Link :- https://www.youtube.com/watch?v=z5zMFLNvjw0
 
 class Solution {
 public:
