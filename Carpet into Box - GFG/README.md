@@ -2,7 +2,7 @@
 ## Medium
 <div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">There is a carpet&nbsp;of a size a*b [length * breadth]. You are given a box of size c*d.&nbsp;The task is, one has to fit the carpet in the box in a minimum number of moves.&nbsp;</span></p>
 
-<p><span style="font-size:18px"><strong>In one move, you can either decrease the length or the breath of the carpet by half (floor value of its half).</strong></span></p>
+<p><span style="font-size:18px"><strong>In one move, you can either decrease the length or the breadth of the carpet by half (floor value of its half).</strong></span></p>
 
 <p><span style="font-size:18px">Note:&nbsp;One can even turn the carpet by 90 degrees any number of times, wont be counted as a move.</span></p>
 
