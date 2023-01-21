@@ -9,40 +9,46 @@ using namespace std;
 
 class Solution {
   public:
+    // Time Complexity :- O(max(log(a),log(b)));
+    // Space Complexity :- O(1);
     int minVal(int a, int b) {
         // code here
-        vector<int> a1 = decimalToBinary(a);
-        vector<int> b1 = decimalToBinary(b);
+        int a1 = countSetBit(a);
+        int b1 = countSetBit(b);
         int ans = a;
-        if(a1[32]==b1[32]) {
+        if(a1==b1) {
             
-        } else if(a1[32]<b1[32]) {
-            for(int i=0;i<32 && a1[32]!=b1[32];i++) {
-                if(a1[i]==0) {
-                    ans+=(1<<i);
-                    a1[32]++;
+        } else if(a1<b1) {
+            int idx=0;
+            while(a1!=b1) {
+                if(a%2==0) {
+                    a1++;
+                    ans+=(1<<idx);
                 }
+                idx++;
+                a/=2;
             }
         } else {
-            for(int i=0;i<32 && a1[32]!=b1[32];i++) {
-                if(a1[i]==1) {
-                    ans-=(1<<i);
-                    a1[32]--;
+            int idx=0;
+            while(a1!=b1) {
+                if(a%2==1) {
+                    a1--;
+                    ans-=(1<<idx);
                 }
+                idx++;
+                a/=2;
             }
         }
         return ans;
     }
     
-    vector<int> decimalToBinary(int n) {
-        vector<int> binary(33,0);
-        for(int i=0;i<32;i++) {
-            if((n&(1<<i))!=0) {
-                binary[32]++;
-                binary[i]=1;
-            }
+    int countSetBit(int n) {
+        int ct=0;
+        while(n>0) {
+            if(n%2==1) ct++;
+            n/=2;
         }
-        return binary;
+        return ct;
     }
 };
 
