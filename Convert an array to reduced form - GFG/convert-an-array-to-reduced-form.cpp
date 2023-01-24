@@ -9,6 +9,8 @@ using namespace std;
 class Solution{
 public:	
 	// Converts arr[0..n-1] to reduced form.
+	// Time Complexity :- O(n.log(n));
+    // space Complexity :- O(n);
 	void convert(int arr[], int n) {
 	    // code here
 	    map<int,int> mp;
