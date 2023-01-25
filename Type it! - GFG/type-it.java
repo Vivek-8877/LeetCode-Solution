@@ -28,16 +28,14 @@ class GFG {
 class Solution {
     int minOperation(String s) {
         // code here
+        HashSet<String> set = new HashSet<>();
+        for(int i=0;i<s.length()/2;i++) set.add(s.substring(i+1,2*(i+1)));
+        
         int ans=s.length();
         for(int i=0;i<s.length()/2;i++) {
-            boolean isValid=true;
-            for(int j=0;j<=i && isValid;j++) {
-                if(s.charAt(j)!=s.charAt(j+i+1)) {
-                    isValid=false;
-                }
-            }
-            if(isValid) ans = s.length()-i;
+            if(set.contains(s.substring(0,i+1))) ans=s.length()-i;
         }
+        
         return ans;
     }
 }
