@@ -26,6 +26,8 @@ class GFG {
 // User function Template for Java
 
 class Solution {
+    // Time Complexity :- O(n);
+    // Space Complexity :- O(n);
     int minOperation(String s) {
         // code here
         HashSet<String> set = new HashSet<>();
