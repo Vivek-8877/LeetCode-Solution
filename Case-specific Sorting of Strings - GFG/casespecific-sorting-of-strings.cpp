@@ -12,6 +12,8 @@ class Solution
 {
     public:
     //Function to perform case-specific sorting of strings.
+    // Time Complexity :- O(n.log(n));
+    // Space Complexity :- O(n);
     string caseSort(string str, int n)
     {
         // your code here
@@ -23,16 +25,15 @@ class Solution
             lo++;
         }
         
-        string ans="";
         for(int i=0;i<str.length();i++) {
             if(str[i]>='a') {
-                ans+=s1[lo++];
+                str[i]=s1[lo++];
             } else {
-                ans+=s1[up++];
+                str[i]=s1[up++];
             }
         }
         
-        return ans;
+        return str;
     }
 };
 
