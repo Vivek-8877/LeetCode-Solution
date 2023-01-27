@@ -5,6 +5,8 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
 	public:
+// 		Time Complexity :- O(n);
+// 		Space Complexity :- O(n*28) => O(n);
 		int mod = 1000000007;
 		int CountWays(string str){
 		    // Code here
@@ -12,17 +14,17 @@ class Solution {
 		    return f(str,0,-1,dp);
 		}
 		
-		int f(string s,int idx,int val,vector<vector<int>>& dp) {
-            if(val==0 || val>26) return 0;
+		int f(string s,int idx,int code,vector<vector<int>>& dp) {
+            if(code==0 || code>26) return 0;
             if(idx>=s.length()) {
                 return 1;
             }
-            if(dp[idx][val+1]!=-1) return dp[idx][val+1];
+            if(dp[idx][code+1]!=-1) return dp[idx][code+1];
             int ans=0;
             ans = add(ans,f(s,idx+1,s[idx]-'0',dp));
-            if(idx!=0) ans = add(ans,f(s,idx+1,(10*val)+(s[idx]-'0'),dp));
+            if(idx!=0) ans = add(ans,f(s,idx+1,(10*code)+(s[idx]-'0'),dp));
             
-            return dp[idx][val+1]=ans;
+            return dp[idx][code+1]=ans;
         }
         
         int add(int a,int b) {
