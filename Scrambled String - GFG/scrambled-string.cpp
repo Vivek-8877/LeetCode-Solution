@@ -11,6 +11,8 @@ using namespace std;
 
 class Solution{
     public:
+    // Time Complexity :- O(n^4);
+    // Space Complexity :- O(n^4);
     bool isScramble(string S1, string S2){
         //code here
         int n = S1.length();
