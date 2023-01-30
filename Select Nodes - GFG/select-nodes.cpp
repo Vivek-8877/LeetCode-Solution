@@ -9,6 +9,8 @@ using namespace std;
 
 class Solution{
   public:
+    // Time Complexity :- O(n);
+    // Space Complexity :- O(n);
     int countVertex(int N, vector<vector<int>>edges){
         // code here
         vector<int> graph[N+1];
