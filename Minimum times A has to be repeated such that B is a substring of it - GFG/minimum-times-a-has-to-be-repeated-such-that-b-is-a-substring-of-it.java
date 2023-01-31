@@ -24,6 +24,8 @@ class GFG {
 //User function Template for Java
 
 class Solution {
+    // Time Complexity :- O(n*m);
+    // Space Complexity :- O(1);
     static int minRepeats(String A, String B) {
         // code here
         int n = A.length(),m=B.length();
@@ -60,7 +62,6 @@ class Solution {
                 }
             }
         }
-        // System.out.println(j+" "+ct);
         return ct;
     }
 };
