@@ -8,6 +8,8 @@ using namespace std;
 
 class Solution {
   public:
+    // Time Complexity :- O(n*m);
+    // Space Complexity :- O(1);
     int minRepeats(string A, string B) {
         // code here
         int n = A.length(),m=B.length();
