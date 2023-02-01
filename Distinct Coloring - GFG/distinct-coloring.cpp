@@ -9,6 +9,8 @@ using namespace std;
 
 class Solution{   
 public:
+    // Time Complexity :- O(n);
+    // Space Complexity :- O(1);
     long long int distinctColoring(int N, int r[], int g[], int b[]){
         // code here
         long long int r1=0,g1=0,b1=0;
