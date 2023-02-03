@@ -10,6 +10,8 @@ using namespace std;
 
 class Solution{
     public:
+    // Time Complexity :- O(n);
+    // Space Complexity :- O(1);
     // 0 -> right , 1 -> down , 2 -> left , 3 -> up;
     pair<int,int> endPoints(vector<vector<int>> matrix){
         //code here
